@@ -1,0 +1,27 @@
+{
+    "name": "mindplay/provider-benchmarks",
+    "description": "Micro-benchmarks for service-provider patterns",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rasmus Schultz",
+            "email": "rasmus@mindplay.dk"
+        }
+    ],
+    "scripts": {
+        "test": "php test/test.php"
+    },
+    "require": {
+        "php": ">=8.2",
+        "mindplay/benchpress": "^0.1.0",
+        "psr/container": "^2.0",
+        "mindplay/testies": "^1.1.0@dev"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "mindplay\\benchmarks\\": "src/"
+        }
+    }
+}
