@@ -39,7 +39,7 @@ $bench->add(
 );
 
 $bench->add(
-    'minimal_type_safety',
+    'optional_callable_types',
     function () {
         $container = new optional_callable_types\Container();
 
