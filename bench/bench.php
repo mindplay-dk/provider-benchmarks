@@ -6,12 +6,15 @@ use mindplay\benchpress\Benchmark;
 
 use mindplay\benchmarks\minimal_type_safety;
 use mindplay\benchmarks\optional_callable_types;
+use mindplay\benchmarks\required_types;
+
 use mindplay\benchmarks\use_case\ServiceA;
 use mindplay\benchmarks\use_case\ServiceB;
 use mindplay\benchmarks\use_case\ServiceC;
 use mindplay\benchmarks\use_case\ServiceX;
 use mindplay\benchmarks\use_case\ServiceY;
 use mindplay\benchmarks\use_case\ServiceZ;
+
 use Psr\Container\ContainerInterface;
 
 $bench = new Benchmark();
@@ -45,6 +48,18 @@ $bench->add(
 
         $container->register(new optional_callable_types\ABCProvider());
         $container->register(new optional_callable_types\XYZProvider());
+
+        get_services($container);
+    }
+);
+
+$bench->add(
+    'required_types',
+    function () {
+        $container = new required_types\Container();
+
+        $container->register(new required_types\ABCProvider());
+        $container->register(new required_types\XYZProvider());
 
         get_services($container);
     }
