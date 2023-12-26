@@ -13,6 +13,7 @@ use mindplay\benchmarks\use_case\ServiceZ;
 use Psr\Container\ContainerInterface;
 
 use mindplay\benchmarks\minimal_type_safety;
+use mindplay\benchmarks\optional_callable_types;
 
 function check_container_types(ContainerInterface $c) {
     ok($c->has(ServiceA::class));
@@ -37,12 +38,24 @@ function check_container_types(ContainerInterface $c) {
 }
 
 test(
-    "minimal type safety",
+    "minimal_type_safety",
     function () {
         $c = new minimal_type_safety\Container();
 
         $c->register(new minimal_type_safety\XYZProvider());
         $c->register(new minimal_type_safety\ABCProvider());
+
+        check_container_types($c);
+    }
+);
+
+test(
+    "optional_callable_types",
+    function () {
+        $c = new optional_callable_types\Container();
+
+        $c->register(new optional_callable_types\XYZProvider());
+        $c->register(new optional_callable_types\ABCProvider());
 
         check_container_types($c);
     }

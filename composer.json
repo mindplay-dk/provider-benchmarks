@@ -10,7 +10,8 @@
         }
     ],
     "scripts": {
-        "test": "php test/test.php"
+        "test": "php test/test.php",
+        "bench": "php bench/bench.php"
     },
     "require": {
         "php": ">=8.2",
